@@ -47,6 +47,22 @@ def read(lis):
     f= ("".join(z).split())
     print(f,"\n")
 
+######## GPA
+
+for i in f:
+    if i.lower()=="gpa":
+        gpa=float(f[i+1])
+        if (!(gpa>0 and gpa<4)):
+            gpa=float(f[i+1])
+            if (!(gpa>0 and gpa<4)):
+                break;
+
+
+
+
+
+
+
     synonyms = []
     #compiles all the syn of all words in passes list
     for num in range(len(skills)):
