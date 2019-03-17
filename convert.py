@@ -52,11 +52,14 @@ def read(lis):
 for i in f:
     if i.lower()=="gpa":
         gpa=float(f[i+1])
-        if (!(gpa>0 and gpa<4)):
+        if !(gpa>0 and gpa<4):
             gpa=float(f[i+1])
-            if (!(gpa>0 and gpa<4)):
+            if !(gpa>0 and gpa<4):
                 break;
-
+        if gpa >= float(field[3]):
+            print("Candidate interviewable")
+        else:
+            print("reject")
 
 
 
