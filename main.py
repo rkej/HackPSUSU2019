@@ -1,3 +1,6 @@
+#
+#import
+from convert import read
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -9,7 +12,11 @@ def student():
 def result():
    if request.method == 'POST':
       result = request.form
-      return render_template("result.html",result = result)
+      #print("main")
+      #print(result.items())
+      #print(result)
+      read(result.items())
+      #return render_template("result.html",result = result)
 
 if __name__ == '__main__':
    app.run(debug = True)

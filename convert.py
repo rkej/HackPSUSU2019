@@ -21,7 +21,23 @@ pageObj = pdfReader.getPage(0)
 # extracting text from page
 #print(pageObj.extractText())
 #list is the list of ALL the skills that the recruiter wants to check for
-def read(list):
+def read(lis):
+    #list(lis)
+    #print("in read")
+    #print((lis))
+    #print(lis[0][0])
+    #lis=list(lis)
+
+    field=[]
+    for i in range(len(lis)):
+        field.append(str(lis[i][1]))
+
+    print (field)
+    #print(lis[0])
+    skills=[]
+    skills.append(field[1])
+    skills.append(field[2])
+    print(skills)
     count =0
     hit=0
     x=pageObj.extractText()
@@ -29,12 +45,12 @@ def read(list):
     z=[str(i) for i in y]
 
     f= ("".join(z).split())
-    #print(f,"\n")
+    print(f,"\n")
 
     synonyms = []
     #compiles all the syn of all words in passes list
-    for num in range(len(list)):
-        word=list[num]
+    for num in range(len(skills)):
+        word=skills[num]
         for syn in wordnet.synsets(word):
             for l in syn.lemmas():
                 synonyms.append(l.name())
@@ -56,7 +72,7 @@ def read(list):
                 hit+=1
 
     percent=(float(hit)/float(count))*100.00
-    #print(hit, count)
+    print(hit, count)
     print(percent,"%")
 
 
@@ -64,7 +80,7 @@ def read(list):
 
     # closing the pdf file object
     pdfFileObj.close()
-
+    return
 
 
 def Remove(duplicate):
