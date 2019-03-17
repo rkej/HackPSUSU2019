@@ -44,7 +44,7 @@ def read(list):
         synonyms[i]=(synonyms[i]).lower()
         #count+=1
 
-    print((synonyms))
+    #print((synonyms))
     synonyms=Remove(synonyms)
     print((synonyms))
     count=len(synonyms)
@@ -56,8 +56,8 @@ def read(list):
                 hit+=1
 
     percent=(float(hit)/float(count))*100.00
-    print(hit, count)
-    print(percent,"per")
+    #print(hit, count)
+    print(percent,"%")
 
 
 
@@ -74,5 +74,5 @@ def Remove(duplicate):
             final_list.append(num)
     return final_list
 
-list=['tech','leadership','Java','C++']
-read(list)
+#list=['tech','leadership','Java','C++']
+#read(list)
