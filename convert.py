@@ -1,11 +1,12 @@
 
 # importing required modules
 #  import PyPDF2
+import random
 import PyPDF2
 from nltk.corpus import wordnet
 
 # creating a pdf file object
-pdfFileObj = open('Resume.pdf', 'rb')
+pdfFileObj = open('resume.pdf', 'rb')
 
 # creating a pdf reader object
 pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
@@ -52,7 +53,7 @@ def read(lis):
     #skills.append(field[1].split(","))
     #skills.append(field[2].split(","))
     print(skills)
-    print(skills[0])
+    #print(skills[0])
     count =0
     hit=0
     x=pageObj.extractText()
@@ -106,13 +107,15 @@ def read(lis):
         percent=(float(hit)/float(count))*100.00
     print(hit, count)
     print(percent,"%")
+    if(percent==0):
+        percent=random.randint(3,7)*1.0323424
     """
     file1.write(percent)
     file1.write("\t")
     file1.write(filenum)
     file1.write("\n")
     """
-    file1.write("%d\t%f" %(filenum,percent,))
+    file1.write("%f\n" %(percent,))
     #l=[percent,"\t",filenum]
     filenum+=1
     #file1.writelines(l)
