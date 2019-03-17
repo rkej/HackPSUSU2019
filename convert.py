@@ -1,5 +1,6 @@
 
 # importing required modules
+#  import PyPDF2
 import PyPDF2
 from nltk.corpus import wordnet
 
@@ -15,41 +16,63 @@ print(pdfReader.numPages)
 # creating a page object
 pageObj = pdfReader.getPage(0)
 
+
+
 # extracting text from page
 #print(pageObj.extractText())
+#list is the list of ALL the skills that the recruiter wants to check for
+def read(list):
+    count =0
+    hit=0
+    x=pageObj.extractText()
+    y=(x.split("\n"))
+    z=[str(i) for i in y]
 
-x=pageObj.extractText()
-#print(x)
-#print(type(x))
-y=(x.split("\n"))
-z=[str(i) for i in y]
+    f= ("".join(z).split())
+    #print(f,"\n")
 
-#z=y.split("\n")
-#y=[str(i) for i in x]
-
-f= ("".join(z).split())
-
-print(f,"\n")
-
-
-synonyms = []
-
-#print(f[0])
-
-for word in f:
-    print word
-
-    for syn in wordnet.synsets(word):
-        for l in syn.lemmas():
-            synonyms.append(l.name())
-
-    #print(len(synonyms))
-
+    synonyms = []
+    #compiles all the syn of all words in passes list
+    for num in range(len(list)):
+        word=list[num]
+        for syn in wordnet.synsets(word):
+            for l in syn.lemmas():
+                synonyms.append(l.name())
+    #convers to comparable string
     for i in range(len(synonyms)):
         synonyms[i]=str(synonyms[i])
+        synonyms[i]=(synonyms[i]).lower()
+        #count+=1
 
     print((synonyms))
-    
+    synonyms=Remove(synonyms)
+    print((synonyms))
+    count=len(synonyms)
+        #checks total number of hits in resume
+    for num in range(len(synonyms)):
+        word=synonyms[num]
+        for num2 in range(len(f)):
+            if word.lower()==f[num2].lower():
+                hit+=1
 
-# closing the pdf file object
-pdfFileObj.close()
+    percent=(float(hit)/float(count))*100.00
+    print(hit, count)
+    print(percent,"per")
+
+
+
+
+    # closing the pdf file object
+    pdfFileObj.close()
+
+
+
+def Remove(duplicate):
+    final_list = []
+    for num in duplicate:
+        if num not in final_list:
+            final_list.append(num)
+    return final_list
+
+list=['tech','leadership','Java','C++']
+read(list)
