@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="data:,">
+  <link rel="shortcut icon" href="#" />
     <title>Geico screenHelp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,12 +39,13 @@
  }
 </style>
 </head>
+
 <body>
 <div class="container">
 <h1>Bootstrap Modal demo</h1>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-tarPOST="#myModal">
   Subscribe Modal
 </button>
 
@@ -57,31 +60,31 @@
       <div class="modal-body">
 
       <form role="form">
-      <div class="form-group" method = "tech_skills">
+      <div class="form-group" method = "POST">
         <label for="exampleInputEmail1">Tech skills</label>
         <input type="name" class="form-control" id="Key" placeholder="Keywords- separated by commas">
       </div>
-      <div class="form-group" method = "soft_skills">
+      <div class="form-group" method = "POST">
         <label for="exampleInputEmail1">Soft skills</label>
         <input type="email" class="form-control" placeholder = "Keywords- separated by commas" >
       </div>
-      <div class="form-group" method = "gpa">
+      <div class="form-group" method = "POST">
         <label>GPA >= </label>
         <input type="email" class="form-control" placeholder = "GPA">
       </div>
-      <div class="form-group" method = "majors">
+      <div class="form-group" method = "POST">
         <label>Majors</label>
         <input type="email" class="form-control" placeholder = "Majors">
       </div>
-      <div class="form-group" method = "expected_graduation">
+      <div class="form-group" method = "POST">
         <label for="exampleInputEmail1">Expected Graduation </label>
         <input type="email" class="form-control" placeholder = "Expected Graduation">
       </div>
     </form>
     </div>
-      <div class="modal-footer" method = "action">
+      <div class="modal-footer" method = "POST">
         <button type="button" class="btn btn btn-warning" data-dismiss="modal">Cancel</button>
-        <button type="submit" name = "take_input" class="btn btn-danger" data-dismiss="modal" value = "input">Screen</button>
+        <a hef="/action/"><button type="submit" name = "take_input" class="btn btn-danger" data-dismiss="modal" value = "input"> Load </button> </a>
       </div>
     </div>
   </div>
