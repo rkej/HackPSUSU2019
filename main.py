@@ -14,7 +14,7 @@ def my_form_tech_skills():
 def my_form_soft_skills():
     tech_skills = request.form['text']
 
-    return soft_skills
+    return tech_skills
 @app.route('/', methods=['gpa'])
 
 def my_form_gpa():
@@ -24,7 +24,7 @@ def my_form_gpa():
 
 def my_form_majors():
     majors = request.form['text']
-    return tech_skills
+    return majors
 @app.route('/', methods=['expected_graduation'])
 
 def my_form_expected_graduation():
